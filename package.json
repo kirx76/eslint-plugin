@@ -1,0 +1,44 @@
+{
+  "name": "@kirx76/eslint-plugin",
+  "version": "1.0.0",
+  "private": false,
+  "main": "index.ts",
+  "author": {
+    "name": "kirx76",
+    "email": "ekirichenk8@gmail.com"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "eslint": "^8.23.0"
+  },
+  "dependencies": {
+    "requireindex": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/eslint": "^8.4.1",
+    "@types/node": "^18.7.14",
+    "@types/requireindex": "^1.2.0",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.8",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.6.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "hooks",
+    "react",
+    "react-hooks",
+    "sort-hooks"
+  ]
+}
