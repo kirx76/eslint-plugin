@@ -1,4 +1,4 @@
-import type {Node, Program} from "./types";
+import {Node, Program} from "@rules/hooks-order/types";
 
 export const DEFAULT_GROUPS: string[] = [
   "useReducer",
