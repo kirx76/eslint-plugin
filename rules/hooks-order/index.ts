@@ -107,7 +107,7 @@ module.exports = {
 
         if (Array.isArray(code)) {
           code.map((bad, index) => {
-            if (Array.isArray(goods)) {
+            if (Array.isArray(goods) && bad.name !== goods[index].name) {
               const goodCode = source.getText(goods[index].node);
               const badIndex = index;
               const goodIndex = goodNames.indexOf(bad?.name);
