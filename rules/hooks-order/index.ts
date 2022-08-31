@@ -1,4 +1,4 @@
-const DEFAULT_GROUPS: string[] = [
+const DEFAULT_GROUPS = [
   "useReducer",
   "useContext",
   "useState",
@@ -31,7 +31,7 @@ module.exports = {
   create: (ctx) => {
     const source = ctx.getSourceCode();
     const options = ctx.options[0];
-    const groups: string[] = options?.groups || DEFAULT_GROUPS;
+    const groups = options?.groups || DEFAULT_GROUPS;
 
     const getAllFuncDeclarations = (program) =>
       program.body
@@ -61,9 +61,9 @@ module.exports = {
         })
         .filter(Boolean);
 
-    const getArrayOfMainFunctions = (df: any) =>
+    const getArrayOfMainFunctions = (df) =>
       df
-        .map((declared: any) => {
+        .map((declared) => {
           if (declared.type === "VariableDeclaration") {
             const declaredType = declared.declarations[0].init.type;
             if (declaredType !== "CallExpression") {
@@ -87,7 +87,7 @@ module.exports = {
         })
         .filter(Boolean);
 
-    const getCorrectOrderingByGroups = (data: any) => {
+    const getCorrectOrderingByGroups = (data) => {
       if (Array.isArray(data)) {
         return [...data].sort(
           (a, b) => groups.indexOf(a.name) - groups.indexOf(b.name)
