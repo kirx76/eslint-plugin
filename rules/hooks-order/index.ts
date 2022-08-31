@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-unresolved,import/no-import-module-exports
 import {Node, Program} from "@rules/hooks-order/types";
 
+// eslint-disable-next-line import/prefer-default-export
 export const DEFAULT_GROUPS: string[] = [
   "useReducer",
   "useContext",
