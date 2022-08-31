@@ -34,7 +34,7 @@ module.exports = {
     const groups = options?.groups || DEFAULT_GROUPS;
 
     const getAllFuncDeclarations = (program) =>
-      program.body
+      program?.body
         .filter(({type}) =>
           [
             "FunctionDeclaration",
@@ -67,7 +67,7 @@ module.exports = {
           if (declared.type === "VariableDeclaration") {
             const declaredType = declared.declarations[0].init.type;
             if (declaredType !== "CallExpression") {
-              const declarations = declared.declarations[0].init.body.body;
+              const declarations = declared.declarations[0].init?.body?.body;
               return getHooksFromBody(declarations);
             }
           }
@@ -76,11 +76,11 @@ module.exports = {
               declared.declaration
             );
             const declarations =
-              declaredFunctions[0]?.defs[0].node.init.body.body;
+              declaredFunctions[0]?.defs[0].node.init?.body?.body;
             return getHooksFromBody(declarations);
           }
           if (declared.type === "FunctionDeclaration") {
-            const declarations = declared.body.body;
+            const declarations = declared?.body?.body;
             return getHooksFromBody(declarations);
           }
           return undefined;
