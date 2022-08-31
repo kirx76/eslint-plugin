@@ -1,38 +1,4 @@
-type Node = {
-  type:
-    | "Identifier"
-    | "FunctionDeclaration"
-    | "ExportNamedDeclaration"
-    | "ExportDefaultDeclaration"
-    | "ExpressionStatement"
-    | "VariableDeclaration"
-    | "CallExpression"
-    | "VariableDeclarator"
-    | "MemberExpression";
-  name: string;
-  body: {
-    body: any[];
-  };
-  init: Node[];
-  callee: Node;
-  expression: Node;
-  property: Node;
-  declaration: {
-    declarations: {
-      init: Node;
-    }[];
-  };
-  declarations: {
-    init: Node;
-  }[] &
-    Node[];
-};
-
-export type Program = {
-  body: Node[];
-};
-
-export const DEFAULT_GROUPS: string[] = [
+const DEFAULT_GROUPS: string[] = [
   "useReducer",
   "useContext",
   "useState",
@@ -67,7 +33,7 @@ module.exports = {
     const options = ctx.options[0];
     const groups: string[] = options?.groups || DEFAULT_GROUPS;
 
-    const getAllFuncDeclarations = (program: Program) =>
+    const getAllFuncDeclarations = (program) =>
       program.body
         .filter(({type}) =>
           [
@@ -79,7 +45,7 @@ module.exports = {
         )
         .filter(Boolean);
 
-    const getHooksFromBody = (bodyDeclarations: Node[]) =>
+    const getHooksFromBody = (bodyDeclarations) =>
       bodyDeclarations
         ?.map((node) => {
           if (node.type === "VariableDeclaration") {
@@ -131,7 +97,7 @@ module.exports = {
     };
 
     return {
-      Program(program: Program) {
+      Program(program) {
         const code = getArrayOfMainFunctions(
           getAllFuncDeclarations(program)
         )[0];
