@@ -1,9 +1,9 @@
 {
   "name": "@kirx76/eslint-plugin",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "description": "A simple organizer for ordering hooks.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "author": {
     "name": "kirx76",
     "email": "ekirichenk8@gmail.com"
