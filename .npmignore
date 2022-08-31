@@ -1,7 +1,6 @@
 .github
 node_modules
 .editorconfig
-.eslintrc
 .gitignore
 .prettierrc
 tsconfig.json

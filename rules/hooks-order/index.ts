@@ -1,7 +1,37 @@
-// eslint-disable-next-line import/no-unresolved,import/no-import-module-exports
-import {Node, Program} from "@rules/hooks-order/types";
+type Node = {
+  type:
+    | "Identifier"
+    | "FunctionDeclaration"
+    | "ExportNamedDeclaration"
+    | "ExportDefaultDeclaration"
+    | "ExpressionStatement"
+    | "VariableDeclaration"
+    | "CallExpression"
+    | "VariableDeclarator"
+    | "MemberExpression";
+  name: string;
+  body: {
+    body: any[];
+  };
+  init: Node[];
+  callee: Node;
+  expression: Node;
+  property: Node;
+  declaration: {
+    declarations: {
+      init: Node;
+    }[];
+  };
+  declarations: {
+    init: Node;
+  }[] &
+    Node[];
+};
 
-// eslint-disable-next-line import/prefer-default-export
+export type Program = {
+  body: Node[];
+};
+
 export const DEFAULT_GROUPS: string[] = [
   "useReducer",
   "useContext",
