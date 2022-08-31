@@ -1,6 +1,13 @@
+.husky
 .github
 node_modules
+tests
+.eslintrc
+.nvmrc
+commitlint.config.js
+jest.config.js
+.prettierrc
+.prettierignore
 .editorconfig
 .gitignore
-.prettierrc
 tsconfig.json

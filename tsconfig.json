@@ -20,9 +20,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@rules/*": ["./rules/*"]
+      "@rules/*": ["lib/rules/*"]
     }
   },
-  "include": ["./rules/**/*", "tests/**/*"],
+  "include": ["lib/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist"]
 }
